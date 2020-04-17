@@ -1,6 +1,10 @@
-
+@import '~reset-css';
 @import '~antd/dist/antd.css';
+@import './layouts/chat.scss';
 
+body {
+  background-color: #F2F2F2;
+}
 
 body, .wrapper, #root, html {
   height: 100%;

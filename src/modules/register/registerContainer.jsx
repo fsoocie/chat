@@ -1,34 +1,13 @@
 import Register from "./register";
 import {withFormik} from "formik";
+import validate from "../../utils/validate";
 
 const RegisterForm = withFormik({
-    mapPropsToValues: () => ({ email: '' }),
+    mapPropsToValues: () => ({ email: '', name: '', password: '', repeatPassword: '' }),
 
     validate: values => {
         const errors = {};
-
-        if (!values.email) {
-            errors.email = 'Обязательное поле!';
-        }
-        else if (!values.email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
-            errors.email = 'Не правильный E-mail!'
-        }
-
-        if (!values.name){
-            errors.name = 'Обязательное поле!'
-        }
-        else if (values.name.length <= 3) {
-            errors.name = 'Слишком короткое имя!'
-        }
-
-        if (!values.password){
-            errors.password = 'Обязательное поле!'
-        }
-        else if (values.password.length <= 6) {
-            errors.password = 'Слишком короткий пароль!'
-        }
-
-
+        validate({errors, values})
         return errors;
     },
     handleSubmit: (values, { setSubmitting }) => {

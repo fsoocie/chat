@@ -7,11 +7,6 @@ const LoginForm = withFormik({
     // Custom sync validation
     validate: values => {
         const errors = {};
-
-        if (!values.name) {
-            errors.name = 'Required';
-        }
-
         return errors;
     },
 
@@ -22,7 +17,7 @@ const LoginForm = withFormik({
         }, 1000);
     },
 
-    displayName: 'BasicForm',
+    displayName: 'LoginForm',
 })(Login)
 
 

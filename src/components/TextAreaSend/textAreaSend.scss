@@ -1,0 +1,33 @@
+.textarea-send{
+  border: 1px solid #E9E9E9;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  &-right{
+    padding: 0 8px;
+    border-left: 1px solid #F2F2F2;
+  }
+  button{
+    border: 0;
+    color: #202002;
+    opacity: 0.4;
+    box-shadow:none;
+    transition: opacity ease-in 0.1s;
+    box-sizing: content-box;
+  }
+  button:hover, button:focus{
+    opacity: 0.6;
+    color: #202002;
+  }
+  textarea{
+    opacity: 0.85;
+    overflow: hidden;
+    font-size: 15px;
+    padding-top: 16px;
+    resize: none;
+    border: none;
+    height: 50px;
+    flex:1;
+  }
+}

@@ -1,0 +1,17 @@
+.isOnline{
+  position:relative;
+  text-align: center;
+  &::before{
+    position: absolute;
+    bottom: 3px;
+    left: 10px;
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: #a6a6a6;
+    border-radius: 30px;
+  }
+  &--online::before{
+    background-color: #00C980;
+  }
+}

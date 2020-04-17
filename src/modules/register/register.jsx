@@ -30,7 +30,7 @@ const Register = (props) => {
             <WhiteBlock>
                 {!success ? (
                     <Form
-                        name="normal_register"
+                        name="RegisterForm"
                         onFinish={handleSubmit}
                     >
                         <Form.Item
@@ -99,16 +99,19 @@ const Register = (props) => {
                         </Form.Item>
 
                         <Form.Item
-                            name="repeat-password"
+                            name="repeatPassword"
                             rules={[{required: true, message: 'Пожалуйста, повторите пароль!'}]}
                         >
                             <Input
-                                name='repeat-password'
+                                name='repeatPassword'
                                 prefix={<LockOutlined className="site-form-item-icon"/>}
                                 type="password"
                                 className='auth__input'
                                 size='large'
                                 placeholder="Повторите пароль"
+                                value={values.repeatPassword}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
                             />
                         </Form.Item>
 
