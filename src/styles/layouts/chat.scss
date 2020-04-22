@@ -12,7 +12,7 @@
     border-right: 1px solid #F7F7F7;
 
     &-header {
-      height: 58px;
+      height: 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -69,6 +69,11 @@
         &__items {
           overflow: auto;
           height: 100%;
+          &--loading{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
         }
 
         &__item {
@@ -90,6 +95,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid #f7f7f7;
       b{
         font-weight: 600;
         font-size: 15px;
@@ -114,9 +120,14 @@
     }
     &-messages{
       height: calc(100% - 60px);
+      position: relative;
+      .emoji-section{
+        position:absolute;
+        bottom: 72px;
+        left: 33px;
+        z-index: 1;
+      }
       &-items{
-        padding: 30px 35px;
-        overflow: auto;
         height: calc(100% - 72px);
         &-textarea{
           margin-bottom: 20px;

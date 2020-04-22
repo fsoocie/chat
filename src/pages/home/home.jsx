@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
 
-import Dialogs from "../../components/Dialogs/Dialogs";
-import dialogsJSON from '../../dialogs'
 import Button from "../../components/Button/Button";
-import FormOutlined from "@ant-design/icons/lib/icons/FormOutlined";
 import TeamOutlined from "@ant-design/icons/lib/icons/TeamOutlined";
-import Messages from "../../components/Messages/messages";
+import Messages from "../../containers/messages";
 import IsOnline from "../../components/isOnline/isOnline";
 import EllipsisOutlined from "@ant-design/icons/lib/icons/EllipsisOutlined";
 import TextAreaSend from "../../components/TextAreaSend/textAreaSend";
+import Dialogs from "../../containers/dialogs";
+import FormOutlined from "@ant-design/icons/lib/icons/FormOutlined";
+
 
 
 const Home = (props) => {
+    const [isShowingEmoji, setIsShowingEmoji] = useState(false)
     return (
         <div className='chat'>
             <div className="chat__sidebar">
@@ -20,10 +23,10 @@ const Home = (props) => {
                         <TeamOutlined style={{fontSize: '20px'}}/>
                         <span className='chat__sidebar-header-group-span'>Список диалогов</span>
                     </div>
-
+                    <Button type='link' icon={<FormOutlined style={{fontSize:'18px'}} />}/>
                 </div>
                 <div className="chat__sidebar-dialogsList">
-                    <Dialogs items={dialogsJSON} userId={0}/>
+                    <Dialogs userId={0}/>
                 </div>
             </div>
 
@@ -41,8 +44,11 @@ const Home = (props) => {
                     <div className="chat__dialog-messages-items">
                         <Messages />
                     </div>
+                    {isShowingEmoji && <div className='emoji-section'>
+                        <Picker set='apple'/>
+                    </div>}
                     <div className="chat__dialog-messages-items-textarea">
-                        <TextAreaSend />
+                        <TextAreaSend setIsShowingEmoji={setIsShowingEmoji} isShowingEmoji={isShowingEmoji} />
                     </div>
 
                 </div>

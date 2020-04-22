@@ -5,8 +5,15 @@
   align-items: center;
 
   &-right{
+    display:flex;
     padding: 0 8px;
     border-left: 1px solid #F2F2F2;
+    .resume_import:hover{
+      button{
+        opacity: 0.6;
+        color: #202002;
+      }
+    }
   }
   button{
     border: 0;
@@ -31,3 +38,4 @@
     flex:1;
   }
 }
+::-webkit-file-upload-button { cursor:pointer; }

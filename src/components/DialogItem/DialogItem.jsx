@@ -12,10 +12,10 @@ const formatDate = (date) => {
         :format(new Date(date), 'dd.MM.yyyy'))
 }
 
-const DialogItem = ({user, isMe, unread,created_at, text}) => {
-    const temp = 10
+const DialogItem = ({user, isMe, unread,created_at, text, onSelect, _id}) => {
+    
     return (
-        <div className={cn('dialogs__item', {'dialogs__item--isOnline': user.isOnline})}>
+        <div onClick={() => onSelect(_id)} className={cn('dialogs__item', {'dialogs__item--isOnline': user.isOnline})}>
            <div className="dialogs__image">
                <ImageAvatar user={user}/>
            </div>
@@ -26,8 +26,8 @@ const DialogItem = ({user, isMe, unread,created_at, text}) => {
                </div>
                <div className="dialogs__bottom">
                     <p>{text}</p>
-                   {temp > 0 && <div className="dialogs__unread-count">
-                        <span>{temp > 9? '+9' : temp}</span>
+                   {unread > 0 && <div className="dialogs__unread-count">
+                        <span>{unread > 9? '+9' : unread}</span>
                     </div>}
                    {isMe && <IconRead isMe = {true} isRead = {true} />}
                </div>
