@@ -33,19 +33,29 @@ const Login = props => {
                     onFinish={handleSubmit}
                 >
                     <Form.Item
-                        name="name"
-                        rules={[{required: true, message: 'Пожалуйста, введите Ваше имя!'}]}
+                        name="email"
+                        rules={[{required: true, message: 'Пожалуйста, введите Ваш E-Mail!'}]}
+                        help={errors.email && errors.email === 'Обязательное поле!' && touched.email
+                            ? 'Обязательное поле!'
+                            : errors.email !== 'Обязательное поле!' && errors.email}
+                        validateStatus={ !values.email? '':
+                            !errors.email ? 'success': 'error'}
                     >
                         <Input prefix={<UserOutlined className="site-form-item-icon"/>} size='large'
-                               name='name'
-                               placeholder="Имя" className='auth__input'
-                               value={values.name}
+                               name='email'
+                               placeholder="E-Mail" className='auth__input'
+                               value={values.email}
                                onChange={handleChange}
                                onBlur={handleBlur}/>
                     </Form.Item>
                     <Form.Item
                         name="password"
                         rules={[{required: true, message: 'Пожалуйста, введите Ваш пароль!'}]}
+                        help={errors.password && errors.password === 'Обязательное поле!' && touched.password
+                            ? 'Обязательное поле!'
+                            : errors.password !== 'Обязательное поле!' && errors.password}
+                        validateStatus={ !values.password? '':
+                            !errors.password ? 'success': 'error'}
                     >
                         <Input
                             prefix={<LockOutlined className="site-form-item-icon"/>}
@@ -61,7 +71,7 @@ const Login = props => {
                     </Form.Item>
 
                     <Form.Item>
-                        <Button size='large' type='primary' htmlType="submit">
+                        <Button size='large' disabled={isSubmitting} type='primary' htmlType="submit">
                             Войти в аккаунт
                         </Button>
                     </Form.Item>

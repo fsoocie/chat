@@ -7,7 +7,7 @@ const RegisterForm = withFormik({
 
     validate: values => {
         const errors = {};
-        validate({errors, values})
+        validate({errors, values, isRegister: true});
         return errors;
     },
     handleSubmit: (values, { setSubmitting }) => {

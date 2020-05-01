@@ -20,6 +20,7 @@ const Register = (props) => {
         handleSubmit,
         handleReset
     } = props;
+    console.log(dirty)
 
     return (
         <div>
@@ -101,6 +102,8 @@ const Register = (props) => {
                         <Form.Item
                             name="repeatPassword"
                             rules={[{required: true, message: 'Пожалуйста, повторите пароль!'}]}
+                            validateStatus={ !values.repeatPassword? '':
+                                !errors.repeatPassword ? 'success': 'error'}
                         >
                             <Input
                                 name='repeatPassword'

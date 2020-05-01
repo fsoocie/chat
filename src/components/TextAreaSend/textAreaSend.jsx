@@ -21,7 +21,7 @@ const TextAreaSend = ({setIsShowingEmoji,isShowingEmoji}) => {
                     }}
                         uploadProps={{
                         accept: '.jpeg, .jpg, .png, .gif',
-                        multiple: 'true'
+                        multiple: true
                     }}
                         >
                         <Button type='link' icon={<PaperClipOutlined style={{fontSize: '22px'}}/>}/>

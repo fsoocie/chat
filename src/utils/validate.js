@@ -17,8 +17,8 @@ export default ({errors, values, isRegister}) => {
         password: value => {
             if (!value) {
                 errors.password = 'Обязательное поле!'
-            } else if (value.length <= 6) {
-                errors.password = 'Слишком короткий пароль!'
+            } else if (value.length < 6) {
+                errors.password = isRegister? 'Слишком короткий пароль!' : 'Минимальная длина 6 символов'
             }
         }
     };
